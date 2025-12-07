@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Пост - Car Forum{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <a href="/" class="btn btn-secondary btn-pill">← Назад к ленте</a>
+</div>
+
+<div id="postContainer">
+    <p class="loading">Загружаем пост...</p>
+</div>
+
+<div class="comments-section">
+    <h3>Комментарии</h3>
+    
+    <div id="commentForm" style="display: none; margin-bottom: 1.5rem;">
+        <form id="addCommentForm">
+            <div class="form-group">
+                <textarea 
+                    id="commentContent" 
+                    placeholder="Напишите, что думаете о публикации..." 
+                    rows="4" 
+                    required
+                ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-pill">Оставить комментарий</button>
+        </form>
+    </div>
+    
+    <div id="loginPrompt" style="display: none; text-align: center; padding: 2rem; border-radius: 16px; margin-bottom: 1.5rem;">
+        <p>Чтобы комментировать записи, войдите или зарегистрируйтесь.
+            <a href="/login" class="btn btn-primary btn-pill" style="margin-left: 0.5rem;">Войти</a>
+        </p>
+    </div>
+    
+    <div id="commentsContainer">
+        <p class="loading">Загружаем комментарии...</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/post.js') }}"></script>
+{% endblock %}

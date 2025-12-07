@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Новый пост - Car Forum{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Поделитесь новой историей</h1>
+    <p class="hero-subtitle">Опишите свой проект, расскажите о находке или задайте вопрос сообществу.</p>
+</div>
+
+<div class="post-form-container glass-panel">
+    <form id="createPostForm">
+        <div class="form-group">
+            <label for="title">Заголовок</label>
+            <input type="text" id="title" name="title" minlength="3" maxlength="200" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Содержание</label>
+            <textarea id="content" name="content" rows="10" minlength="10" required></textarea>
+        </div>
+        <div id="errorMessage" class="error-message"></div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-pill">Опубликовать</button>
+            <a href="/" class="btn btn-secondary btn-pill">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/create_post.js') }}"></script>
+{% endblock %}

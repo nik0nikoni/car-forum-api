@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация - Car Forum{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Создать аккаунт</h2>
+        <p class="hero-subtitle">Получите доступ к лучшим обсуждениям, делитесь проектами и находите поддержку.</p>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" minlength="3" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" minlength="6" required>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+            <button type="submit" class="btn btn-primary btn-full">Создать аккаунт</button>
+        </form>
+        <p class="auth-footer hero-subtitle" style="margin-top: 1.5rem;">
+            Уже с нами? <a href="/login">Войти в аккаунт</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/register.js') }}"></script>
+{% endblock %}

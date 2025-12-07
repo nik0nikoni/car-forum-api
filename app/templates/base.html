@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Car Forum{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body class="app-body">
+    <div class="app-gradient"></div>
+    <div class="app-wrapper">
+        <nav class="navbar glass-panel">
+            <div class="container nav-container">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🚗</span>
+                    <span class="logo-label">Car Forum</span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="/" class="nav-link">Лента</a>
+                    <span id="authButtons" class="nav-auth">
+                        <a href="/login" class="btn btn-text">Войти</a>
+                        <a href="/register" class="btn btn-primary">Регистрация</a>
+                    </span>
+                    <span id="userMenu" class="nav-user" style="display: none;">
+                        <span id="userDisplayName" class="nav-user-name"></span>
+                        <a href="/profile" class="btn btn-ghost">Профиль</a>
+                        <a href="/create-post" class="btn btn-primary btn-pill">Новый пост</a>
+                        <button onclick="logout()" class="btn btn-ghost">Выйти</button>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container page-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer glass-panel">
+            <div class="container">
+                <p>&copy; 2025 Car Forum — сообщество автолюбителей будущего.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/config.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/auth.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

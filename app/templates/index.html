@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - Car Forum{% endblock %}
+
+{% block content %}
+<section class="hero-card glass-panel">
+    <div>
+        <p class="eyebrow">Сообщество единомышленников</p>
+        <h1>Делитесь опытом, собирайте фидбек и вдохновляйтесь автомобилями будущего</h1>
+        <p class="hero-subtitle">
+            Car Forum — современная площадка для обсуждения тюнинга, новостей индустрии и личных проектов.
+            Создавайте посты, читайте советы и находите людей со схожими интересами.
+        </p>
+        <div class="hero-actions">
+            <a href="/create-post" class="btn btn-primary btn-pill">Написать пост</a>
+            <a href="/register" class="btn btn-secondary btn-pill">Присоединиться</a>
+        </div>
+    </div>
+    <div class="hero-metrics">
+        <div class="metric-card">
+            <span>🔥</span>
+            <p>Обсуждения каждый день</p>
+        </div>
+        <div class="metric-card">
+            <span>🚗</span>
+            <p>Реальные истории участников</p>
+        </div>
+        <div class="metric-card">
+            <span>🤝</span>
+            <p>Помощь в один клик</p>
+        </div>
+    </div>
+</section>
+
+<div class="search-container">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Ищете конкретную тему или автомобиль?...">
+        <button class="btn btn-primary" onclick="searchPosts()">Найти</button>
+        <button class="btn btn-secondary" onclick="clearSearch()">Очистить</button>
+    </div>
+</div>
+
+<div id="postsContainer">
+    <p class="loading">Загружаем публикации...</p>
+</div>
+
+<div class="pagination" id="pagination"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='/js/posts.js') }}"></script>
+{% endblock %}
